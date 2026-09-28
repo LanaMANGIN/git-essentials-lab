@@ -1,21 +1,14 @@
 package library;
 
-public final class LoanPolicy {
+public class LoanPolicy {
     public int maxBooks(MemberType type) {
-        if (type == MemberType.FACULTY) {
+        if (type == MemberType.STUDENT) {
+            return 3;
+        } else if (type == MemberType.FACULTY) {
             return 5;
         }
-        return 3;
+        return 2;
     }
-
-    public int maxDays() {
-        return 14;
-    }
-
-    public int overdueFee(int daysOverdue) {
-        if (daysOverdue <= 0) {
-            return 0;
-        }
-        return daysOverdue * 100;
-    }
+    public int loanDays() { return 14; }
+    public int overdueFee(int daysLate) { return Math.max(0, daysLate) * 100; }
 }
