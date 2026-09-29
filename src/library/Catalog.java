@@ -31,7 +31,7 @@ public final class Catalog {
     public List<Book> search(String query) {
         Objects.requireNonNull(query, "Search query is required");
         return books.values().stream()
-                .filter(book -> book.title().toLowerCase(java.util.locale.ROOT).contains(query.toLowerCase(java.util.locale.ROOT)))
+                .filter(book -> book.title().toLowerCase(java.util.Locale.ROOT).contains(query.toLowerCase(java.util.Locale.ROOT)))
                 .toList();
     }
 }
